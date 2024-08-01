@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TripCraft - Personalized Travel Planner</title>
+  <h1 class="logo"><b href="Home.html">TripCraft</b></h1>
+  <h3 class="logo">
+    <c href="Home.html">Personalized Travel Planner</c>
+  </h3>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="body">
+  <header>
+    <h2>Where to?</h2>
+    <nav>
+      <ul id="navigation">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <!-- Dynamic element for login or profile link will be handled by JavaScript -->
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <section id="preferences">
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Places to go...">
+        <button type="submit" id="searchButton">Search</button>
+      </div>
+
+      <h4>Personalized Your Trip Here !</h4>
+      <form id="tripForm">
+        <label for="country">Country:</label>
+        <input type="text" id="country" name="country" required>
+        <label for="budget">Budget ($):</label>
+        <input type="number" id="budget" name="budget" required>
+        <label for="days">Number of Days:</label>
+        <input type="number" id="days" name="days" min="1" required>
+        <label for="travelType">Type of Travel:</label>
+        <select type="text" id="travelType" name="travelType">
+          <option value="leisure">Leisure</option>
+          <option value="business">Business</option>
+          <option value="adventure">Adventure</option>
+          <option value="cultural">Cultural</option>
+        </select>
+        <label for="specificNeeds">Specific Needs (optional):</label>
+        <input type="text" id="specificNeeds" name="specificNeeds">
+        <button type="submit">Generate Plan</button>
+      </form>
+      <div id="planResults"></div>
+    </section>
+    <section id="about">
+      <h4>About TripCraft</h4>
+      <p>The primary purpose of "TripCraft" is to simplify and personalize the travel planning process. By allowing
+        users to input specific preferences such as destinations, budget constraints, and travel themes, "TripCraft"
+        generates tailored travel suggestions that optimize the overall experience while considering factors like local
+        attractions, accommodations, and transportation options.</p>
+    </section>
+  </main>
+  <footer>
+    <p>Copyright © 2024 TripCraft</p>
+  </footer>
+  <script src="formHandler.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+      const navigation = document.getElementById('navigation');
+      navigation.innerHTML = '<li><a href="#home">Home</a></li>' +
+        '<li><a href="#about">About</a></li>' +
+        '<li><a href="#contact">Contact</a></li>';
+      if (isLoggedIn) {
+        navigation.innerHTML += '<li><a href="Profile.html" class="nav-button right"><span class="profile-icon">👤</span> Profile</a></li>';
+      } else {
+        navigation.innerHTML += '<li><a href="Login.html" class="nav-button right">Login / Register</a></li>';
+      }
+    });
+
+  </script>
+</body>
+
+</html>
